@@ -5,10 +5,10 @@ galaxy_info:
   license: MIT
   min_ansible_version: 1.9
   platforms:
-    - name: Ubuntu
-      versions:
-        - 14.04
-        - 15.10
+  - name: Ubuntu
+    versions:
+      - 14.04
+      - 15.10
   categories:
     - ethereum
     - charlie
