@@ -14,4 +14,4 @@ galaxy_info:
     - charlie
     - fluidity
 dependencies:
-  - { jesuscript.charlie-common, tags: "dependency" }
+  - { role: jesuscript.charlie-common, tags: "dependency" }
