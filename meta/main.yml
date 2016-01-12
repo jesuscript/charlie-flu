@@ -1,6 +1,4 @@
 galaxy_info:
-  author: "Konstantin Kudryavtsev"
-  description: "Ethereum Charlie Fluidity role"
   license: MIT
   min_ansible_version: 1.9
   platforms:
@@ -12,3 +10,5 @@ galaxy_info:
     - ethereum
     - charlie
     - fluidity
+dependencies:
+  - { role: jesuscript.charlie-common, tags: "dependency" }
