@@ -12,5 +12,3 @@ galaxy_info:
     - ethereum
     - charlie
     - fluidity
-dependencies:
-  - { role: jesuscript.charlie-common, tags: "dependency" }
