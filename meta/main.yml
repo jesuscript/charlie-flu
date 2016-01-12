@@ -5,8 +5,8 @@ galaxy_info:
   min_ansible_version: 1.9
   platforms:
     - name: Ubuntu
-  versions:
-    - all
+      versions:
+        - all
   galaxy_tags:
     - ethereum
     - charlie
