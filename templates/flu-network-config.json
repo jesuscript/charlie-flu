@@ -2,7 +2,7 @@
   "sealEngine": "BasicAuthority",
   "options": {
     "authorities": [
-      {% for host in groups['signer'] %}
+      {% for host in groups[signer_host_name] %}
       "{{ hostvars[host].address }}"{% if not loop.last %},{% endif %} 
       {% endfor %}
     ]
@@ -44,7 +44,7 @@
   },
   "network": {
     "nodes": [
-      {% for host in groups['node'] %}
+      {% for host in groups[node_host_name] %}
       "{{ hostvars[host].enode }}@{{host}}:40404"{% if not loop.last %},{% endif %} 
       {% endfor %}
     ]

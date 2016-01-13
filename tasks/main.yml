@@ -2,8 +2,12 @@
   ufw: rule=allow port=40404 proto=udp
   notify: reload ufw
 
+- name: open 40404 for TCP
+  ufw: rule=allow port=40404 proto=tcp
+  notify: reload ufw
+
 - name: open the rpc port
-  when: "'rpc' in group_names"
+  when: "'{{rpc_host_name}}' in group_names"
   ufw: rule=allow port=8545 proto=tcp
   notify: reload ufw
 
@@ -16,7 +20,7 @@
     name: flu
     image: jesuscript/flu
     pull: always
-    command: /usr/bin/flu --jsonrpc --jsonrpc-cors-domain '*' --config "{{flu_config_path_docker}}"  "{{ '--start-sealing' if 'validator' in group_names else '' }}"
+    command: /usr/bin/flu --jsonrpc --jsonrpc-cors-domain '*' --config "{{flu_config_path_docker}}"  "{{ '--start-sealing' if '{{signer_host_name}}' in group_names else '' }}"
     volumes:
       - "{{flu_config_path}}:{{flu_config_path_docker}}"
     ports:
@@ -49,5 +53,7 @@
 - name: copy flu configs over
   template: src=flu-network-config.json dest="{{flu_config_path}}"
   notify: restart flu
-  tags: update
+  tags:
+    - update
+
       
