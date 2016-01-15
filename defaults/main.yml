@@ -1,3 +1,4 @@
 node_host_name: node
 signer_host_name: signer
 rpc_host_name: rpc
+preload_address: 0000000000000000000000000000000000000000

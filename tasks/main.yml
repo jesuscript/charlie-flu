@@ -20,7 +20,7 @@
     name: flu
     image: jesuscript/flu
     pull: always
-    command: /usr/bin/flu --jsonrpc --jsonrpc-cors-domain '*' --config "{{flu_config_path_docker}}"  "{{ '--start-sealing' if '{{signer_host_name}}' in group_names else '' }}"
+    command: /usr/bin/flu --jsonrpc --jsonrpc-cors-domain '*' --config "{{flu_config_path_docker}}"  "{{ '--start-sealing' if signer_host_name in group_names else '' }}"
     volumes:
       - "{{flu_config_path}}:{{flu_config_path_docker}}"
     ports:
